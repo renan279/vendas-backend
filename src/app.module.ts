@@ -14,7 +14,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: process.env.DB_HOST,
       password: process.env.DB_PASSWORD,
       port: Number(process.env.DB_PORT),
-      username: process.env.DB_USERNAME
+      username: process.env.DB_USERNAME,
+      // nao é ideal ser true, mas inicialmente pra ver rodando tudo bem, dps deve criar migrations
+      synchronize: true,
+      entities: [`${__dirname}/**/*.entity{.js,.ts}`]
     }), UserModule],
   controllers: [],
   providers: [],
